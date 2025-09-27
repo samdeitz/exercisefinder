@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+
+@import 'tailwindcss';
+
+
+@layer base {
+
+    html {
+        @apply hide-scrollbar;
+    }
+
+
+    body {
+        font-family: 'DM Sans', sans-serif;
+        background: #151545;
+        font-optical-sizing: auto;
+    }
+
+    h1 {
+        @apply text-5xl text-center font-bold leading-tight mx-auto max-w-4xl text-neutral-300;
+    }
+
+    h2 {
+        @apply text-3xl font-bold leading-tight  max-w-4xl text-neutral-300;
+    }
+
+    h3 {
+        @apply p-1 text-2xl font-bold leading-tight mx-auto max-w-4xl text-neutral-300;
+    }
+
+
+    p {
+        @apply text-neutral-300 leading-tight p-1;
+    }
+
+    .dot {
+        @apply text-neutral-300;
+    }
+}
+
+
+@layer components {
+
+    .header{
+        & img {
+            margin: 0 auto;
+            filter: drop-shadow(0 0 20px #d4d4d4);
+        }
+    }
+    .wrapper {
+        @apply px-5 py-12 max-w-7xl mx-auto flex flex-col relative z-10;
+    }
+
+    .search {
+        @apply text-black w-full max-w-3xl mx-auto mt-10 px-3 py-4 rounded-lg bg-neutral-300 relative;
+
+        & img {
+            @apply absolute w-5 h-5 top-5;
+        }
+        & input {
+            @apply w-full h-8 px-10 py-3 rounded-lg bg-neutral-300 outline-none;
+        }
+    }
+
+    .loader {
+        @apply w-full p-10 mx-auto border-4 border-t-4 border-gray-200 rounded-full;
+    }
+
+    .exercises {
+        @apply mt-8 space-y-9;
+
+        & ul {
+            @apply grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3;
+        }
+    }
+
+    .exercise-card {
+        @apply w-100 mx-auto bg-[#050515] p-5 rounded-2xl shadow-2xl border-2 border-[#101020] ;
+
+        & .name {
+            @apply capitalize text-2xl font-bold text-neutral-300;
+        }
+        & img {
+            @apply mx-auto mb-5;
+        }
+    }
+
+    .content {
+
+        & .equipment, .target {
+            @apply capitalize font-bold text-neutral-300 inline;
+        }
+
+        & .instruction {
+            @apply text-gray-400 font-medium;
+        }
+
+    }
+}
+
+@utility title-gradient {
+    @apply bg-linear-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent;
+}
+
+@utility hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
