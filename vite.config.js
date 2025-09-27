@@ -7,4 +7,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   base: "/exercisefinder/",
   plugins: [react(), tailwindcss()],
+  build: {
+    outDir: 'dist'
+  }
 })
