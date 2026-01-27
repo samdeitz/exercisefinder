@@ -24,7 +24,7 @@ jobs:
         run: npm run build
 
       - name: clone Portfolio repo
-        run: git clone https://x-access-token:${{ secrets.NEXT_REPO_TOKEN }}@github.com/samdeitz/personal-portfolio.git
+        run: git clone https://${{ secrets.NEXT_REPO_TOKEN }}@github.com/samdeitz/personal-portfolio.git
 
       - name: copy build to portfolio
         run: |
