@@ -34,7 +34,7 @@ jobs:
 
       - name: commit & push
         run: |
-              cd personal/portfolio
+              cd personal-portfolio
               git config user.name "exercise-bot"
               git config user.email "exercise-bot@github.com"
               git add public/exercisefinder
