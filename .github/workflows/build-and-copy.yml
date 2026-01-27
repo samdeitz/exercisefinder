@@ -32,11 +32,14 @@ jobs:
               mkdir -p personal-portfolio/public/exercisefinder
               cp -r dist/* personal-portfolio/public/exercisefinder
 
+      - name: configure git for commit and deploy
+        run: |
+              git config --global user.name "exercise-bot"
+              git config --global user.email "exercise-bot@github.com"      
+
       - name: commit & push
         run: |
               cd personal-portfolio
-              git config user.name "exercise-bot"
-              git config user.email "exercise-bot@github.com"
               git add public/exercisefinder
               git commit -m "Update exercise finder build" || exit 0
               git push
