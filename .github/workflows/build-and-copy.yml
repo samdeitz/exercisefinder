@@ -45,4 +45,6 @@ jobs:
               git push
 
       - name: deploy portfolio
+        env:
+          GH_TOKEN: ${{ secrets.PORTFOLIO_REPO_TOKEN }}
         run: npm run deploy
