@@ -1,0 +1,33 @@
+name: Build and Copy to Portfolio
+
+on: 
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu latest
+
+    steps:
+      - name: Checkout exercisefinder
+        uses: actions/Checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: install dependencies
+        uses: npm ci
+
+      - name: Build vite app
+        uses: npm run build
+
+      - name: clone Portfolio repo
+        uses: git clone https://x-access-token:${{ secrets.NEXT_REPO_TOKEN }}@github.com/samdeitz/personal-portfolio.git
+
+      - name: copy build to portfolio
+        uses: |
+              rm -rf personal-portfolio/docs/exercisefinder
+              mkdir -p personal-portfolio/docs/exercisefinder
+              cp -r dist/* personal-portfolio/docs/exercisefinder
