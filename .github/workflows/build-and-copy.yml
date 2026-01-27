@@ -32,13 +32,18 @@ jobs:
               mkdir -p personal-portfolio/public/exercisefinder
               cp -r dist/* personal-portfolio/public/exercisefinder
 
+      - name: Checkout portfolio repo
+        uses: actions/checkout@v4
+        with:
+          repository: samdeitz/personal-portfolio
+          token: ${{ secrets.NEXT_REPO_TOKEN }}
+          path: personal-portfolio
+
       - name: commit & push
         run: |
               cd personal-portfolio
               git config user.name "exercise-bot"
               git config user.email "exercise-bot@github.com"
-              git config --global credential.helper ""
-              git remote set-url origin https://${{ secrets.NEXT_REPO_TOKEN }}@github.com/samdeitz/personal-portfolio.git
               git add public/exercisefinder
               git commit -m "Update exercise finder build" || exit 0
               git push
