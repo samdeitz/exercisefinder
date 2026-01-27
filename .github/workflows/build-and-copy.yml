@@ -28,6 +28,15 @@ jobs:
 
       - name: copy build to portfolio
         uses: |
-              rm -rf personal-portfolio/docs/exercisefinder
-              mkdir -p personal-portfolio/docs/exercisefinder
-              cp -r dist/* personal-portfolio/docs/exercisefinder
+              rm -rf personal-portfolio/public/exercisefinder
+              mkdir -p personal-portfolio/public/exercisefinder
+              cp -r dist/* personal-portfolio/public/exercisefinder
+
+      - name: commit & push
+        uses: |
+              cd personal/portfolio
+              git config user.name "exercise-bot"
+              git config user.email "exercise-bot@github.com"
+              git add public/exercisefinder
+              git commit -m "Update exercise finder build" || exit 0
+              git push
