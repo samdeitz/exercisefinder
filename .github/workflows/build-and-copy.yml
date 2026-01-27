@@ -40,3 +40,6 @@ jobs:
               git add public/exercisefinder
               git commit -m "Update exercise finder build" || exit 0
               git push
+
+      - name: deploy portfolio
+        run: npm run deploy
