@@ -54,5 +54,6 @@ jobs:
           GH_TOKEN: ${{ secrets.PORTFOLIO_REPO_TOKEN }}
         run: |
           cd personal-portfolio
+          npm run predeploy
           npm run deploy
           
