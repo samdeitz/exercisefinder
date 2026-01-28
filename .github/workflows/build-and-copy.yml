@@ -33,9 +33,9 @@ jobs:
 
       - name: copy build to portfolio
         run: |
-              rm -rf personal-portfolio/docs/exercisefinder
-              mkdir -p personal-portfolio/docs/exercisefinder
-              cp -r dist/* personal-portfolio/docs/exercisefinder
+              rm -rf personal-portfolio/public/exercisefinder
+              mkdir -p personal-portfolio/public/exercisefinder
+              cp -r dist/* personal-portfolio/public/exercisefinder
 
       - name: configure git for commit and deploy
         run: |
@@ -45,7 +45,7 @@ jobs:
       - name: commit & push
         run: |
               cd personal-portfolio
-              git add docs/exercisefinder
+              git add public/exercisefinder
               git commit -m "Update exercise finder build" || exit 0
               git push
 
